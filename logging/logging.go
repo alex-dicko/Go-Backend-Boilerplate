@@ -58,23 +58,20 @@ func writeToFile(l *Logger, output string) error {
 }
 
 func verboseName(level LogLevel) string {
-	if level == Error{
-		return "[ERROR]"
+	switch level{
+		case Error:
+			return "[ERROR]"
+		case Warning:
+			return "[WARNING]"
+		case Debug:
+			return "[DEBUG]"
+		case Success:
+			return "[SUCCESS]"
+		case Info:
+			return "[INFO]"
+		default:
+			return "[NONE]"
 	}
-	if level == Warning {
-		return "[WARNING]"
-	}
-	if level == Debug	 {
-		return "[ERROR]"
-	}
-	if level == Success {
-		return "[SUCCESS]"
-	}
-	if level == Info {
-		return "[INFO]"
-	}
-
-	return "[NONE]"
 }
 
 func InitLogger(name string) *Logger {

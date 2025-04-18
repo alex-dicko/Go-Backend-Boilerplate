@@ -14,6 +14,8 @@ type User struct {
 	Password string
 }
 
+// Will set an encrypted password for a user
+// takes the raw password as the only parameter
 func (u *User) SetPassword(password string) {
 	hased_password, _ := utils.HashPassword(password)
 

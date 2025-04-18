@@ -16,9 +16,14 @@ import (
 	"github.com/gofiber/fiber/v3"
 	"github.com/golang-jwt/jwt/v5"
 	"gorm.io/gorm"
+	"boilerplate/logging"
 )
 
 func LoginUser(c fiber.Ctx) error {
+	logger := logging.InitLogger("LOGIN")
+	logger.Log(logging.Info, "Login Test")
+
+
 	payload := struct {
 		User     string `json:"user"`
 		Password string `json:"password"`
